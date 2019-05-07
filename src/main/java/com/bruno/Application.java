@@ -12,7 +12,7 @@ public class Application {
     private static Matcher MATCHER = Matcher.SHUFFLED;
     private static int LIMIT = 30;
 
-    private static String WORD = "eeilb";
+    private static String WORD = "eneerwachs";
 
     public static void main(String args[]) throws IOException, URISyntaxException {
         System.out.println("Input word: " + WORD);
