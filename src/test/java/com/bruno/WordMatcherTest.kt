@@ -2,6 +2,7 @@ package com.bruno
 
 import org.junit.Assert.assertThat
 import org.hamcrest.CoreMatchers.hasItems
+import org.hamcrest.CoreMatchers.equalTo
 
 import com.bruno.matchers.Matcher
 import org.junit.Test
@@ -15,7 +16,7 @@ class WordMatcherTest {
     fun should_find_words() {
         assertThat(
                 wordMatcher.getMatches("L_eb_"),
-                hasItems("liebe", "liebt")
+                equalTo(listOf("liebe", "liebt"))
         )
     }
 
@@ -24,7 +25,7 @@ class WordMatcherTest {
     fun should_find_first_word() {
         assertThat(
                 wordMatcher.setLimit(1).getMatches("L_eb_"),
-                hasItems("liebe")
+                equalTo(listOf("liebe"))
         )
     }
 }

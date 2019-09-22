@@ -9,9 +9,9 @@ import java.util.stream.Collectors
 
 class WordMatcher(private val language: Language, private val matcher: Matcher) {
 
-    private var limit = 30
+    private var limit = 30L
 
-    fun setLimit(limit: Int): WordMatcher {
+    fun setLimit(limit: Long): WordMatcher {
         this.limit = limit
 
         return this
@@ -28,9 +28,9 @@ class WordMatcher(private val language: Language, private val matcher: Matcher) 
                 .lines(Paths.get(fileURI))
                 .parallel()
                 .filter(predicate)
-                .map<String> { it.toLowerCase() }
+                .map { it.toLowerCase() }
                 .distinct()
-                .limit(this.limit.toLong())
+                .limit(this.limit)
                 .collect(Collectors.toList())
     }
 }

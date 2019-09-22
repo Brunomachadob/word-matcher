@@ -5,10 +5,10 @@ import com.bruno.matchers.Matcher
 object Application {
 
     private val LANGUAGE = Language.GERMAN
-    private val MATCHER = Matcher.SHUFFLED
-    private const val LIMIT = 30
+    private val MATCHER = Matcher.MISSING
+    private const val LIMIT = Long.MAX_VALUE
 
-    private const val WORD = "rüasbercht"
+    private const val WORD = "T_________en"
 
     @JvmStatic
     fun main(args: Array<String>) {

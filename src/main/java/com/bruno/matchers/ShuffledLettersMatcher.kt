@@ -4,21 +4,16 @@ import java.util.HashSet
 import java.util.function.Predicate
 import java.util.stream.IntStream
 
-class ShuffledLettersMatcher(word: String) : Predicate<String> {
+class ShuffledLettersMatcher(word: String) : SameLengthMatcher(word), Predicate<String> {
 
-    private val sameLengthMatcher: Predicate<String> = withSameSize(word)
-    private val possibilities: MutableSet<String>
+    private val possibilities: MutableSet<String> = HashSet()
 
     init {
-        this.possibilities = HashSet()
-
         permuteString("", word)
-
-        println("Permutations: " + this.possibilities.size)
     }
 
     override fun test(word: String): Boolean {
-        return sameLengthMatcher.test(word) && this.possibilities.contains(word)
+        return super.test(word) && this.possibilities.contains(word)
     }
 
     private fun permuteString(beginningString: String, endingString: String) {
